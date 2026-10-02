@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>GUARD.IA - Industrial AI &amp; Computer Vision Safety Platform</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "error-container": "#93000a", "on-tertiary-fixed": "#002022", "surface": "#131313", "outline-variant": "#4d4632", "primary-container": "#ffd400", "on-primary-container": "#705c00", "on-background": "#e5e2e1", "on-secondary-container": "#b5b5b5", "on-tertiary": "#00363a", "secondary": "#c6c6c6", "surface-bright": "#393939", "secondary-fixed-dim": "#c6c6c6", "inverse-primary": "#715d00", "tertiary-container": "#00eefd", "on-error-container": "#ffdad6", "tertiary-fixed-dim": "#00dbe9", "tertiary-fixed": "#7df4ff", "surface-container-highest": "#353534", "surface-dim": "#131313", "surface-variant": "#353534", "on-tertiary-container": "#00686f", "on-secondary": "#2f3131", "surface-container-high": "#2a2a2a", "secondary-container": "#454747", "surface-tint": "#ebc300", "on-secondary-fixed-variant": "#454747", "error": "#ffb4ab", "inverse-on-surface": "#313030", "on-primary": "#3b2f00", "on-surface-variant": "#d0c6ab", "on-secondary-fixed": "#1a1c1c", "on-error": "#690005", "surface-container-low": "#1c1b1b", "on-surface": "#e5e2e1", "primary": "#fff3d6", "primary-fixed-dim": "#ebc300", "inverse-surface": "#e5e2e1", "surface-container-lowest": "#0e0e0e", "tertiary": "#d4fbff", "on-primary-fixed": "#231b00", "outline": "#999077", "primary-fixed": "#ffe177", "on-primary-fixed-variant": "#554500", "surface-container": "#201f1f", "on-tertiary-fixed-variant": "#004f54", "background": "#131313", "secondary-fixed": "#e2e2e2" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "gutter": "1rem", "space-xl": "2.5rem", "gutter-desktop": "1.5rem", "margin": "1rem", "space-sm": "0.5rem", "space-md": "1rem", "margin-desktop": "2rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-sm": ["Space Grotesk"], "label-md": ["Space Grotesk"], "body-md": ["Inter"], "display-lg": ["Space Grotesk"], "body-sm": ["Inter"], "label-lg": ["Space Grotesk"], "label-sm": ["Space Grotesk"], "headline-lg": ["Space Grotesk"], "body-lg": ["Inter"], "headline-md": ["Space Grotesk"], "headline-lg-mobile": ["Space Grotesk"] }, "fontSize": { "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-primary-container/30 shadow-[0_4px_24px_rgba(255,212,0,0.12)]"><div class="h-20 w-full px-gutter-desktop max-w-7xl mx-auto flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="inicio" href="#"><div class="relative flex items-center justify-center"><div class="absolute -inset-1 rounded-full bg-primary-container/20 blur-sm group-hover:bg-primary-container/40 transition-all"></div><img alt="GUARD.IA Brand Profile" class="relative w-8 h-8 rounded-full object-cover border border-primary-container/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPRwOkuNbFBbbdEMlkheFaXKB89buO3Wq3tvdTzomkLwZBJv4n4Ye0Yx4yKxaEOAcQAibGDj6AEw_IGrn4GU_wgluLuHBzEMHtiPEnW2SZ6NLYTh_ASSPeGw6Gnfad1XMJ_edbXS9ZGfgfPHckbVX4gkfjDf0SIo7WVGzoKSP32ZqF41B6xtwsfwps0mYY2XvMR3qOmpYDB8fyKYXljWe_vTDifOihLMTKNjkQiKnsYen8heMtnUKK5_SdIhfhWfV0iw"/></div><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface group-hover:text-primary transition-colors">GUARD<span class="text-primary-container">.IA</span></span><span class="px-space-xs py-0.5 rounded-DEFAULT bg-primary-container/10 border border-primary-container/50 text-primary-container font-label-sm text-label-sm uppercase tracking-widest shadow-[0_0_8px_rgba(255,212,0,0.25)]">ONIET 2026</span></div></a></div><nav class="hidden lg:flex items-center gap-space-lg" data-active-classes="text-primary-container font-semibold border-b-2 border-primary-container"><a aria-current="page" class="uppercase tracking-wider transition-colors py-1 text-primary-container font-semibold border-b-2 border-primary-container" data-path="inicio" href="#">Inicio</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="que-es" href="#que-es">Qué es</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="como-funciona" href="#como-funciona">Cómo Funciona</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="live-demo" href="#live-demo-section">Live Demo</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="tecnologia" href="#tecnologia">Tecnología</a><a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-1" data-path="mision" href="#mision">Misión</a></nav><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-DEFAULT bg-surface-container border border-surface-container-highest"><span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse shadow-[0_0_8px_rgba(0,238,253,0.8)]"></span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">CORE_ACTIVE</span></div><a class="px-space-lg py-space-sm rounded-DEFAULT bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider font-bold transition-all shadow-[0_0_14px_rgba(255,212,0,0.35)] hover:shadow-[0_0_24px_rgba(255,212,0,0.6)] hover:bg-primary-fixed hover:text-on-primary-container active:scale-95" data-path="live-demo" href="#live-demo-section">Probar Demo</a></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden px-gutter-desktop max-w-7xl mx-auto pt-space-lg pb-space-xl">
+<!-- Ambient Backdrop Light Flare -->
+<div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-primary-container/10 blur-[120px] pointer-events-none"></div>
+<div class="absolute top-1/2 left-10 w-72 h-72 rounded-full bg-tertiary-container/5 blur-[100px] pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<!-- Columna Izquierda: Mensaje y CTA -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Live System Radar Pill -->
+<div class="inline-flex items-center gap-space-sm px-space-md py-1.5 rounded-full bg-surface-container border border-surface-container-highest self-start shadow-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">EN VIVO // SISTEMA DE VISIÓN ARTIFICIAL ACTIVO • ONIET 2026</span>
+</div>
+<!-- Monumental Title -->
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-display-lg text-display-lg uppercase tracking-tight text-on-surface leading-none">
+            Seguridad Inteligente
+            <span class="block bg-gradient-to-r from-primary via-primary-container to-surface-tint bg-clip-text text-transparent drop-shadow-[0_0_24px_rgba(255,212,0,0.35)]">
+              Potenciada por IA
+            </span>
+</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl mt-space-sm">
+            Detectamos automáticamente el uso de casco de seguridad, chaleco reflectivo y guantes de protección mediante visión artificial para prevenir accidentes laborales antes de ingresar al área de trabajo o activar herramientas.
+          </p>
+</div>
+<!-- Botones de Acción -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center gap-space-sm px-space-xl py-3.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md uppercase tracking-wider font-bold transition-all shadow-[0_0_20px_rgba(255,212,0,0.4)] hover:shadow-[0_0_30px_rgba(255,212,0,0.7)] hover:bg-primary-fixed active:scale-98" href="#live-demo-section">
+<span class="material-symbols-outlined text-lg">play_arrow</span>
+<span>Ver Demostración</span>
+</a>
+<a class="inline-flex items-center gap-space-sm px-space-lg py-3.5 rounded-xl bg-surface-container border border-surface-container-highest text-on-surface font-label-md text-label-md uppercase tracking-wider font-semibold transition-all hover:border-primary-container/60 hover:text-primary-container hover:bg-surface-container-high" href="#que-es">
+<span class="material-symbols-outlined text-lg">info</span>
+<span>Conocer el Proyecto</span>
+</a>
+</div>
+<!-- HUD Telemetry Micro-Cards -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md border-t border-surface-container-high">
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container/60 border border-surface-container-highest">
+<span class="font-headline-md text-headline-md text-primary-container font-bold">99.4%</span>
+<span class="font-label-sm text-label-sm uppercase text-secondary">Precisión YOLO</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container/60 border border-surface-container-highest">
+<span class="font-headline-md text-headline-md text-tertiary-container font-bold">&lt;15ms</span>
+<span class="font-label-sm text-label-sm uppercase text-secondary">Inferencia Edge</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container/60 border border-surface-container-highest">
+<span class="font-headline-md text-headline-md text-primary font-bold">3 Clases</span>
+<span class="font-label-sm text-label-sm uppercase text-secondary">EPP Activas</span>
+</div>
+<div class="flex flex-col p-space-sm rounded-lg bg-surface-container/60 border border-surface-container-highest">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">24/7</span>
+<span class="font-label-sm text-label-sm uppercase text-secondary">Monitoreo Continuo</span>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Holographic Cyber Viewport -->
+<div class="lg:col-span-5 relative flex justify-center">
+<div class="relative w-full max-w-md aspect-square rounded-2xl bg-surface-container border border-surface-container-highest p-3 shadow-[0_0_40px_rgba(255,212,0,0.15)] overflow-hidden group">
+<!-- Tactical HUD Corners -->
+<div class="absolute top-2 left-2 w-5 h-5 border-t-2 border-l-2 border-primary-container pointer-events-none z-20"></div>
+<div class="absolute top-2 right-2 w-5 h-5 border-t-2 border-r-2 border-primary-container pointer-events-none z-20"></div>
+<div class="absolute bottom-2 left-2 w-5 h-5 border-b-2 border-l-2 border-primary-container pointer-events-none z-20"></div>
+<div class="absolute bottom-2 right-2 w-5 h-5 border-b-2 border-r-2 border-primary-container pointer-events-none z-20"></div>
+<!-- Image Container with Official Guard.IA Image Placeholder -->
+<div class="relative w-full h-full rounded-xl overflow-hidden bg-surface-container-lowest flex items-center justify-center">
+<img alt="GUARD.IA Industrial Visual Neural Recognition System" class="w-full h-full object-cover object-center filter contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1iq3UyLtQvzkS2vBE3XTOGfQ_an3_PY-No21ye5Q-41_4Dbqwk-sQr0sKgZabNG8-afvkdlMKkYemjd7vdjodlpCeOzFgxK_aHAlqRUuJQ8pw0LRMtRgfNwgldv2-gLgLQbkeTFfvRDladUU_FUft-BfDnvGpkjTk2gUKg6oUkmXrbScddFY9PxtWQnzbR6q9YRM3suwQSlHEidVkQA9etm1FFMzkQDoJhVPf39IFRhU0wkjz8p5WjJZi8rytnl8KWg"/>
+<!-- Cybernetic Scanline Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary-container/10 to-transparent h-24 w-full animate-[scan_4s_ease-in-out_infinite] pointer-events-none"></div>
+<!-- Bounding Box Targeting Reticle (Casco) -->
+<div class="absolute top-[8%] left-[16%] w-[68%] h-[38%] border-2 border-primary-container rounded-sm shadow-[0_0_14px_rgba(255,212,0,0.45)] pointer-events-none flex flex-col justify-between p-1.5">
+<div class="flex items-center justify-between">
+<span class="px-1.5 py-0.5 rounded-DEFAULT bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase font-bold tracking-wider">CASCO_OK: 99.8%</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<div class="self-end px-1.5 py-0.5 rounded-DEFAULT bg-surface-container-lowest/80 text-primary-container font-label-sm text-label-sm uppercase font-mono tracking-tighter">
+                LOC: [X:412 Y:128 W:310 H:240]
+              </div>
+</div>
+<!-- Status HUD Overlay Header -->
+<div class="absolute top-4 left-4 right-4 flex items-center justify-between bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1.5 rounded border border-surface-container-highest text-secondary font-mono text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-on-surface">NEURAL_STREAM://RT-01</span>
+</div>
+<span class="text-primary-container font-bold">ACTIVE_ANALYSIS</span>
+</div>
+<!-- Telemetry Footer Overlay -->
+<div class="absolute bottom-4 left-4 right-4 flex items-center justify-between bg-surface-container-lowest/85 backdrop-blur-md px-3 py-2 rounded border border-primary-container/40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-base">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface font-bold">STATUS: 3_CLASSES_SCAN</span>
+</div>
+<span class="font-label-sm text-label-sm uppercase text-tertiary-container font-mono">YOLOv8x-EPP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: ¿QUÉ ES GUARD.IA? -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high relative" id="que-es">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">// ARQUITECTURA DEL SISTEMA</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">¿Qué es GUARD.IA?</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl">
+        Una plataforma industrial integral que combina visión computarizada de última generación con modelos neuronales profundos para verificar la indumentaria reglamentaria de 3 componentes esenciales (casco, chaleco, guantes) antes de autorizar el paso o maniobra.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Tarjeta 1 - Inteligencia Artificial -->
+<div class="relative flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest transition-all duration-300 hover:border-primary-container/50 hover:shadow-[0_0_24px_rgba(255,212,0,0.15)] group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary-container mb-space-md group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-2xl">psychology</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs group-hover:text-primary-container transition-colors">Inteligencia Artificial</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+          Analiza en tiempo real el uso de la indumentaria de seguridad reglamentaria (casco, chaleco reflectivo y guantes) mediante redes convolucionales entrenadas y optimizadas para inferencia edge de latencia mínima.
+        </p>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-highest flex items-center justify-between text-label-sm font-label-sm uppercase text-secondary">
+<span>Inferencia Neural</span>
+<span class="text-primary-container font-bold">FP16 TensorRT</span>
+</div>
+</div>
+<!-- Tarjeta 2 - Visión Artificial -->
+<div class="relative flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest transition-all duration-300 hover:border-primary-container/50 hover:shadow-[0_0_24px_rgba(255,212,0,0.15)] group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-tertiary-container mb-space-md group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-2xl">center_focus_strong</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs group-hover:text-tertiary-container transition-colors">Visión Artificial</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+          Procesamiento de alta velocidad sobre feeds de cámaras industriales RTSP/IP, ejecutando normalización geométrica y segmentación precisa de los 3 elementos de protección en entornos operativos exigentes.
+        </p>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-highest flex items-center justify-between text-label-sm font-label-sm uppercase text-secondary">
+<span>Rendimiento Óptico</span>
+<span class="text-tertiary-container font-bold">60 FPS 1080p</span>
+</div>
+</div>
+<!-- Tarjeta 3 - Prevención Activa -->
+<div class="relative flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest transition-all duration-300 hover:border-primary-container/50 hover:shadow-[0_0_24px_rgba(255,212,0,0.15)] group">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform shadow-inner">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm uppercase text-on-surface mb-space-xs group-hover:text-primary transition-colors">Prevención Activa</h3>
+<p class="font-body-md text-body-md text-secondary leading-relaxed">
+          Reduce la tasa de siniestros neutralizando accesos no autorizados antes de comenzar cualquier actividad o maniobra operativa, garantizando el porte obligatorio del trío esencial de protección.
+        </p>
+<div class="mt-space-lg pt-space-sm border-t border-surface-container-highest flex items-center justify-between text-label-sm font-label-sm uppercase text-secondary">
+<span>Respuesta Táctica</span>
+<span class="text-primary font-bold">Enclavamiento 0ms</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: ¿CÓMO FUNCIONA? (DIAGRAMA DE FLUJO INTERACTIVO) -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high" id="como-funciona">
+<div class="flex flex-col gap-space-xs mb-space-lg text-center md:text-left">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">// FLUJO DE PROCESAMIENTO DETERMINISTA</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">¿Cómo Funciona GUARD.IA?</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl">
+        Pipeline secuencial de 6 etapas tácticas diseñadas para evaluar, clasificar y actuar de forma autónoma en fracciones de segundo.
+      </p>
+</div>
+<!-- Timeline Grid con Conectores -->
+<div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-space-md">
+<!-- Glow Line connector for desktop -->
+<div class="hidden lg:block absolute top-10 left-8 right-8 h-[2px] bg-gradient-to-r from-primary-container/20 via-primary-container to-primary-container/20 z-0"></div>
+<!-- Paso 1 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-surface-container-highest">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container font-headline-sm font-bold mb-space-sm">
+          01
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">Operario</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Aproximación al punto perimetral o esclusa de seguridad controlada.
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-primary-container font-mono">
+<span class="material-symbols-outlined text-sm">person_pin</span>
+<span>Detección Sujeto</span>
+</div>
+</div>
+<!-- Paso 2 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-surface-container-highest">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container font-headline-sm font-bold mb-space-sm">
+          02
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">Cámara</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Captura del feed óptico RTSP HD en tiempo real a alta tasa de cuadros.
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-tertiary-container font-mono">
+<span class="material-symbols-outlined text-sm">videocam</span>
+<span>Stream RTSP</span>
+</div>
+</div>
+<!-- Paso 3 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-surface-container-highest">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container font-headline-sm font-bold mb-space-sm">
+          03
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">Modelo IA</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Inferencia convolucional acelerada por hardware (YOLOv8x).
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-primary font-mono">
+<span class="material-symbols-outlined text-sm">neurology</span>
+<span>YOLOv8x Deep Neural</span>
+</div>
+</div>
+<!-- Paso 4 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-surface-container-highest">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container font-headline-sm font-bold mb-space-sm">
+          04
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">Detección EPP</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Detección simultánea y delimitación geométrica de 3 clases: Casco, Chaleco y Guantes.
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-primary-container font-mono">
+<span class="material-symbols-outlined text-sm">category</span>
+<span>3 Clases Entrenadas</span>
+</div>
+</div>
+<!-- Paso 5 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-surface-container-highest">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container font-headline-sm font-bold mb-space-sm">
+          05
+        </div>
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase mb-1">Verificación EPP</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Evaluación booleana estricta del cumplimiento del conjunto de 3 elementos requeridos.
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm">fact_check</span>
+<span>Matriz Booleana 3/3</span>
+</div>
+</div>
+<!-- Paso 6 -->
+<div class="relative z-10 flex flex-col p-space-md rounded-xl bg-surface-container border border-primary-container/30 bg-primary-container/5">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-headline-sm font-bold mb-space-sm">
+          06
+        </div>
+<span class="font-headline-sm text-headline-sm text-primary-container uppercase mb-1">Resultado &amp; Acceso</span>
+<p class="font-body-sm text-body-sm text-secondary">
+          Emisión de señal PLC para Acceso Autorizado (desbloqueo) o Denegado (enclavamiento).
+        </p>
+<div class="mt-space-md flex items-center gap-1.5 text-label-sm font-label-sm text-primary-container font-mono">
+<span class="material-symbols-outlined text-sm">lock_open</span>
+<span>Relé / PLC Trigger</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: DEMOSTRACIÓN EN VIVO (SIMULADOR DE SOFTWARE INDUSTRIAL INTERACTIVO) -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high" id="live-demo-section">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-mono font-bold">GUARD.IA VISION OS v2.6.4 [ONLINE]</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Demostración en Vivo de Inferencia</h2>
+<p class="font-body-md text-body-md text-secondary">
+          Simulador táctico interactivo de cámara YOLO en tiempo real con panel de diagnóstico industrial de 3 clases.
+        </p>
+</div>
+<!-- Conmutador Interactivo Manual -->
+<div class="flex flex-wrap items-center gap-space-xs p-1 rounded-xl bg-surface-container border border-surface-container-highest">
+<button class="scenario-btn active px-space-md py-2 rounded-lg bg-surface-container-high text-primary-container border border-primary-container/40 font-label-sm text-label-sm uppercase font-bold transition-all shadow-sm" id="btn-scenario-violation">
+          Simular Infracción (Acceso Denegado)
+        </button>
+<button class="scenario-btn px-space-md py-2 rounded-lg bg-transparent text-secondary hover:text-on-surface font-label-sm text-label-sm uppercase font-bold transition-all" id="btn-scenario-safe">
+          Simular Cumplimiento (Acceso Autorizado 🟢)
+        </button>
+</div>
+</div>
+<!-- Simulator Shell Container -->
+<div class="w-full rounded-2xl bg-surface-container border border-surface-container-highest overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.8)]">
+<!-- Terminal Window Bar -->
+<div class="px-space-md py-2.5 bg-surface-container-lowest border-b border-surface-container-highest flex items-center justify-between text-secondary font-mono text-label-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-error-container"></span>
+<span class="w-3 h-3 rounded-full bg-surface-tint"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary-container"></span>
+</div>
+<span class="text-on-surface font-semibold tracking-wider">CAM-04_RTSP_INSPECT // SECTOR_PLATAFORMA_NORTE</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="hidden sm:inline text-secondary font-mono">CODEC: H.265 / CUDA_ACCEL</span>
+<span class="text-primary-container font-bold font-mono">FPS: 59.8</span>
+</div>
+</div>
+<!-- Split Terminal Content -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+<!-- Columna Izquierda: Live Video Stream Simulator (YOLO Bounding Boxes) -->
+<div class="lg:col-span-7 p-space-md bg-surface-container-lowest relative flex flex-col justify-between min-h-[480px]">
+<!-- Video Frame Display with Guard.ia Image Placeholder -->
+<div class="relative w-full h-full min-h-[440px] rounded-xl overflow-hidden bg-surface-container flex items-center justify-center border border-surface-container-high">
+<img alt="GUARD.IA Target Feed" class="w-full h-full object-cover object-center filter brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSEt0g4zo0A025atNryxCqpBHUGHXzMreaNAWvAG19_hFowFGdOPQFVtganvVmwMzoCjVoZHTIJueKmFHncG6h_k2v9-h6KJayHcF6MO70I1V7-FF7n3YTZ0Wvt-47vDWQALngcR9viJP4W6rpqVMxVe2cC-VLJqqsZSpTaRVmz_w0CRqfzCECwJ96SvObGBS1D7MdSUbwaz8RCI85e4GEf2sPrJzYKtzeVdROYv_70VcM9gdkla_y_PNzbektDgz3dw"/>
+<!-- Dynamic Scan Laser Effect -->
+<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-primary-container to-transparent shadow-[0_0_12px_#FFD400] animate-[laser_3s_linear_infinite] pointer-events-none"></div>
+<!-- Optical HUD Reticle Crosshairs -->
+<div class="absolute top-4 left-4 w-4 h-4 border-t border-l border-primary-container/80 pointer-events-none"></div>
+<div class="absolute top-4 right-4 w-4 h-4 border-t border-r border-primary-container/80 pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-primary-container/80 pointer-events-none"></div>
+<div class="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-primary-container/80 pointer-events-none"></div>
+<!-- Central Tracking Watermark -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 border border-primary-container/20 rounded-full pointer-events-none flex items-center justify-center">
+<div class="w-32 h-32 border border-dashed border-primary-container/30 rounded-full animate-spin"></div>
+</div>
+<!-- YOLO Bounding Box 1: Casco (Always Valid) -->
+<div class="absolute top-[8%] left-[18%] w-[64%] h-[36%] border-2 border-primary-container rounded shadow-[0_0_12px_rgba(255,212,0,0.5)] flex flex-col justify-start">
+<span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase font-bold px-1.5 py-0.5 self-start">
+                CASCO_OK: 99.7% [ANSI_Z89.1]
+              </span>
+</div>
+<!-- YOLO Bounding Box 2: Chaleco (Always Valid) -->
+<div class="absolute top-[46%] left-[16%] w-[68%] h-[32%] border-2 border-primary-container rounded shadow-[0_0_12px_rgba(255,212,0,0.4)] flex flex-col justify-start">
+<span class="bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase font-bold px-1.5 py-0.5 self-start">
+                CHALECO_REFLECTIVO_OK: 98.4%
+              </span>
+</div>
+<!-- YOLO Bounding Box 3: Manos / Guantes (DYNAMICALLY SWITCHABLE) -->
+<div class="absolute top-[72%] left-[26%] w-[48%] h-[22%] border-2 border-error rounded shadow-[0_0_16px_rgba(255,42,42,0.8)] flex flex-col justify-start transition-all duration-300" id="bbox-gloves">
+<span class="bg-error text-on-error font-label-sm text-label-sm uppercase font-bold px-1.5 py-0.5 self-start animate-pulse" id="bbox-gloves-label">
+                ERROR: GUANTES_NO_DETECTADOS
+              </span>
+</div>
+<!-- Realtime Timestamp Monospace Overlay -->
+<div class="absolute bottom-3 left-3 bg-surface-container-lowest/85 backdrop-blur px-2.5 py-1 rounded text-primary font-mono text-label-sm flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-ping" id="live-time-indicator"></span>
+<span id="live-timecode">2026-10-24T14:38:09.112 UTC</span>
+</div>
+</div>
+</div>
+<!-- Columna Derecha: Industrial Telemetry & Access Rack (Panel de Diagnóstico Industrial) -->
+<div class="lg:col-span-5 p-space-lg bg-surface-container border-t lg:border-t-0 lg:border-l border-surface-container-highest flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest">
+<span class="font-label-md text-label-md uppercase text-secondary font-bold tracking-wider">DIAGNÓSTICO DE EPP // ALCANCE MODELO</span>
+<span class="px-2 py-0.5 rounded bg-primary-container/10 border border-primary-container/40 text-primary-container font-label-sm text-label-sm font-mono font-bold">3/3 CLASES EVALUADAS</span>
+</div>
+<!-- Checklist Matrix: Exclusivamente 3 Filas para Casco, Chaleco y Guantes -->
+<div class="flex flex-col gap-2 pt-1">
+<!-- Item 1: Casco de Seguridad -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high border border-surface-container-highest">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_rgba(0,255,102,0.8)]"></span>
+<span class="material-symbols-outlined text-primary-container text-xl">sports_motorsports</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Casco de Seguridad</span>
+<span class="font-label-sm text-label-sm text-secondary">Normativa ANSI Z89.1 / IRAM</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary-container font-label-sm font-bold uppercase tracking-wider">OK 99.7%</span>
+</div>
+<!-- Item 2: Chaleco Reflectivo -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high border border-surface-container-highest">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_rgba(0,255,102,0.8)]"></span>
+<span class="material-symbols-outlined text-primary-container text-xl">safety_check</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Chaleco Reflectivo</span>
+<span class="font-label-sm text-label-sm text-secondary">Normativa EN ISO 20471 Clase II</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/20 text-primary-container font-label-sm font-bold uppercase tracking-wider">OK 98.4%</span>
+</div>
+<!-- Item 3: Guantes de Seguridad (DYNAMIC) -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-error-container/20 border border-error/50 transition-all duration-300" id="rack-gloves-row">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,77,77,0.8)] animate-pulse" id="rack-gloves-dot"></span>
+<span class="material-symbols-outlined text-error text-xl" id="rack-gloves-icon">front_hand</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Guantes de Seguridad</span>
+<span class="font-label-sm text-label-sm text-error" id="rack-gloves-sub">Infracción: No detectados / Omitidos</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error text-on-error font-label-sm font-bold uppercase tracking-wider" id="rack-gloves-badge">OMITIDO</span>
+</div>
+</div>
+</div>
+<!-- Master Access Decision Box -->
+<div class="p-space-md rounded-xl bg-[#1A0D0D] border-2 border-error shadow-[0_0_24px_rgba(255,42,42,0.35)] flex flex-col gap-2 transition-all duration-300" id="master-decision-card">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase font-mono tracking-widest text-secondary">ORDEN DE ENCLAVAMIENTO PLC</span>
+<span class="w-3 h-3 rounded-full bg-error animate-ping" id="status-pulse-dot"></span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-3xl text-error" id="decision-icon">gpp_bad</span>
+<span class="font-headline-md text-headline-md font-bold uppercase text-error tracking-tight" id="decision-text">ACCESO DENEGADO</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary" id="decision-detail">
+              Falta Guantes de Seguridad. Protocolo bloquea torniquete/maquinaria.
+            </p>
+</div>
+<!-- Monospace Real-time Terminal Log Console -->
+<div class="rounded-lg bg-surface-container-lowest p-2.5 border border-surface-container-highest font-mono text-label-sm text-secondary flex flex-col gap-1 max-h-28 overflow-y-auto">
+<div class="text-primary-container font-bold">// AUDIT_TRAIL_STREAM:</div>
+<div class="flex flex-col gap-0.5 text-body-sm leading-tight text-on-surface" id="audit-log">
+<span class="text-secondary">[14:38:09.004] &gt; SUJETO DETECTADO ID#4891 EN ESCLUSA</span>
+<span class="text-primary-container">[14:38:09.048] &gt; YOLO_CLASS_0 (CASCO): CONF 0.997 [PASS]</span>
+<span class="text-primary-container">[14:38:09.062] &gt; YOLO_CLASS_1 (CHALECO): CONF 0.984 [PASS]</span>
+<span class="text-error">[14:38:09.082] &gt; YOLO_CLASS_2 (GUANTES): CONF 0.12 [FAIL_NOT_DETECTED]</span>
+<span class="text-error font-bold">[14:38:09.112] &gt; TRIGGER RELAY_LOCK(PIN_24)=HIGH // ACCESO DENEGADO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: TECNOLOGÍAS -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high" id="tecnologia">
+<div class="flex flex-col gap-space-xs mb-space-lg">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">// STACK DE INGENIERÍA</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Tecnologías de Vanguardia</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl">
+        Desarrollado bajo los estándares más exigentes de visión computacional, paralelismo matricial y aceleración de inferencia por hardware.
+      </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Tech 1: Python -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">Python</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-container font-mono text-label-sm border border-surface-container-highest">v3.11</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Backend de inferencia y scripts de procesamiento concurrente asíncrono con soporte para subprocesos múltiples de streaming.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-primary-container">terminal</span>
+<span>AsyncIO / Multi-threading</span>
+</div>
+</div>
+<!-- Tech 2: OpenCV -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">OpenCV</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary-container font-mono text-label-sm border border-surface-container-highest">v4.9.0</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Captura de flujo de video RTSP, conversión de espacios de color, normalización de histogramas y manipulación de matrices ópticas.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-tertiary-container">filter_center_focus</span>
+<span>Video I/O &amp; Preprocessing</span>
+</div>
+</div>
+<!-- Tech 3: YOLO -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">YOLO (Ultralytics)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-container font-mono text-label-sm border border-surface-container-highest">YOLOv8x</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Arquitectura de detección de objetos anchor-free con cabeza desacoplada para máxima precisión en las clases de casco, chaleco y guantes.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-primary-container">network_check</span>
+<span>Single-shot Detector</span>
+</div>
+</div>
+<!-- Tech 4: Ultralytics Hub -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">Ultralytics Hub</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-mono text-label-sm border border-surface-container-highest">MLOps</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Gestión, curaduría continua y entrenamiento de datasets sintéticos y reales con anotaciones industriales especializadas.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-primary">cloud_sync</span>
+<span>Continuous Re-training</span>
+</div>
+</div>
+<!-- Tech 5: Computer Vision -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">Computer Vision</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary-container font-mono text-label-sm border border-surface-container-highest">ByteTrack</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Algoritmos de seguimiento multi-objeto y estimación de posturas para correlacionar personas con sus respectivos equipos de seguridad.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-tertiary-container">visibility</span>
+<span>Multi-target Tracking</span>
+</div>
+</div>
+<!-- Tech 6: TensorRT & CUDA -->
+<div class="p-space-lg rounded-xl bg-surface-container border border-surface-container-highest flex flex-col justify-between hover:border-primary-container/40 transition-colors group">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold group-hover:text-primary-container transition-colors">TensorRT &amp; CUDA</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-container font-mono text-label-sm border border-surface-container-highest">FP16 Edge</span>
+</div>
+<p class="font-body-md text-body-md text-secondary">
+            Compilación y cuantización directa de redes neuronales a bajo nivel para ejecución embebida sin sobrecalentamiento.
+          </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-surface-container-highest flex items-center gap-1.5 text-label-sm text-secondary font-mono">
+<span class="material-symbols-outlined text-sm text-primary-container">memory</span>
+<span>GPU Optimization Layer</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: BENEFICIOS (4 TARJETAS ALINEADAS ESTRICTAMENTE) -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high">
+<div class="flex flex-col gap-space-xs mb-space-lg text-center md:text-left">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold">// IMPACTO OPERATIVO COMPROBADO</span>
+<h2 class="font-headline-lg text-headline-lg uppercase text-on-surface">Beneficios Clave del Sistema</h2>
+<p class="font-body-md text-body-md text-secondary max-w-2xl">
+        Transformamos los costos de no-conformidad y paradas de planta imprevistas en un entorno industrial 100% resiliente y digitalizado.
+      </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Beneficio 1: VERIFICACIÓN AUTOMÁTICA -->
+<div class="flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest shadow-md justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-primary-container/40 flex items-center justify-center text-primary-container mb-space-sm">
+<span class="material-symbols-outlined text-xl">fact_check</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase mb-space-xs">Verificación Automática</h3>
+<p class="font-body-md text-body-md text-secondary">
+          Verificación automática e inmediata del uso de casco, chaleco y guantes mediante visión artificial.
+        </p>
+</div>
+<div class="mt-space-lg flex items-center gap-1.5 text-label-sm text-primary-container font-bold">
+<span class="material-symbols-outlined text-base">bolt</span>
+<span>Análisis Instantáneo</span>
+</div>
+</div>
+<!-- Beneficio 2: DISMINUCIÓN DE RIESGO -->
+<div class="flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest shadow-md justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-tertiary-container/40 flex items-center justify-center text-tertiary-container mb-space-sm">
+<span class="material-symbols-outlined text-xl">health_and_safety</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase mb-space-xs">Disminución de Riesgo</h3>
+<p class="font-body-md text-body-md text-secondary">
+          Disminución sustancial del riesgo de ingreso a áreas críticas sin el EPP reglamentario.
+        </p>
+</div>
+<div class="mt-space-lg flex items-center gap-1.5 text-label-sm text-tertiary-container font-bold">
+<span class="material-symbols-outlined text-base">trending_down</span>
+<span>Cero Tolerancia a Fallos</span>
+</div>
+</div>
+<!-- Beneficio 3: AUTOMATIZACIÓN DEL CONTROL -->
+<div class="flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest shadow-md justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-primary/40 flex items-center justify-center text-primary mb-space-sm">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase mb-space-xs">Automatización del Control</h3>
+<p class="font-body-md text-body-md text-secondary">
+          Automatización integral del control de seguridad laboral eliminando inspecciones manuales falibles.
+        </p>
+</div>
+<div class="mt-space-lg flex items-center gap-1.5 text-label-sm text-primary font-bold">
+<span class="material-symbols-outlined text-base">speed</span>
+<span>Control Continuo 24/7</span>
+</div>
+</div>
+<!-- Beneficio 4: HIGIENE Y SEGURIDAD LABORAL -->
+<div class="flex flex-col p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest shadow-md justify-between">
+<div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-surface-container-highest flex items-center justify-center text-on-surface mb-space-sm">
+<span class="material-symbols-outlined text-xl">verified</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface uppercase mb-space-xs">Higiene y Seguridad Laboral</h3>
+<p class="font-body-md text-body-md text-secondary">
+          Apoyo riguroso a los procesos de higiene y seguridad laboral con registro continuo e inmutable.
+        </p>
+</div>
+<div class="mt-space-lg flex items-center gap-1.5 text-label-sm text-on-surface font-bold">
+<span class="material-symbols-outlined text-base">inventory</span>
+<span>Trazabilidad Forense</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECCIÓN: NUESTRO OBJETIVO / MISIÓN (MANIFESTO) -->
+<section class="w-full py-space-xl px-gutter-desktop max-w-7xl mx-auto border-t border-surface-container-high" id="mision">
+<div class="relative rounded-3xl bg-surface-container-lowest border-2 border-primary-container/30 p-space-xl sm:p-12 overflow-hidden shadow-[0_0_50px_rgba(255,212,0,0.1)]">
+<!-- Decorative Tactical Grid Background -->
+<div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FFD400_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+<!-- Corner Accents -->
+<div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-primary-container pointer-events-none"></div>
+<div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-primary-container pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-primary-container pointer-events-none"></div>
+<div class="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-primary-container pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto gap-space-lg">
+<!-- Highlighted Scope Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container/10 border border-primary-container/40 text-primary-container font-label-sm text-label-sm uppercase tracking-widest text-center shadow-sm">
+<span class="material-symbols-outlined text-sm">precision_manufacturing</span>
+<span>ALCANCE OPERATIVO ACTUAL: 3 CLASES ENTRENADAS (CASCO, CHALECO, GUANTES) • ARQUITECTURA PREPARADA PARA ESCALAR A NUEVOS MODELOS</span>
+</div>
+<blockquote class="font-headline-lg text-headline-lg uppercase tracking-tight text-on-surface leading-snug">
+          “Nuestra misión en <span class="text-primary-container">GUARD.IA</span> es erradicar los siniestros laborales prevenibles, transformando entornos industriales en espacios de <span class="text-primary">cero siniestralidad</span> mediante centinelas inteligentes que verifican el equipo de protección reglamentario antes de cualquier situación de riesgo.”
+        </blockquote>
+<div class="flex flex-col sm:flex-row items-center gap-space-md pt-space-xs text-secondary font-mono text-label-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="text-on-surface font-bold">Desarrollado para Olimpiadas ONIET 2026</span>
+</div>
+<span class="hidden sm:inline text-surface-container-highest">|</span>
+<span class="text-primary-container">Categoría Innovación e Inteligencia Artificial</span>
+</div>
+</div>
+</div>
+</section>
+<!-- BANNER FINAL CTA INTERACTIVO -->
+<section class="w-full pb-space-xl px-gutter-desktop max-w-7xl mx-auto">
+<div class="p-space-lg rounded-2xl bg-surface-container border border-surface-container-highest flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm uppercase text-on-surface">¿Listo para desplegar el centinela inteligente?</span>
+<span class="font-body-sm text-body-sm text-secondary">Accede a la demostración interactiva con el modelo YOLOv8x de 3 clases entrenadas.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<a class="w-full md:w-auto text-center px-space-xl py-3 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md uppercase font-bold tracking-wider hover:bg-primary-fixed transition-all shadow-[0_0_15px_rgba(255,212,0,0.35)]" href="#live-demo-section">
+          Iniciar Simulador
+        </a>
+</div>
+</div>
+</section>
+</div>
+<!-- CLIENT-SIDE SCRIPT FOR INTERACTIVE DEMO (3-CLASS STRICT MODEL) -->
+<script>
+  (function() {
+    const btnViolation = document.getElementById('btn-scenario-violation');
+    const btnSafe = document.getElementById('btn-scenario-safe');
+    const bboxGloves = document.getElementById('bbox-gloves');
+    const bboxGlovesLabel = document.getElementById('bbox-gloves-label');
+    const rackGlovesRow = document.getElementById('rack-gloves-row');
+    const rackGlovesDot = document.getElementById('rack-gloves-dot');
+    const rackGlovesIcon = document.getElementById('rack-gloves-icon');
+    const rackGlovesSub = document.getElementById('rack-gloves-sub');
+    const rackGlovesBadge = document.getElementById('rack-gloves-badge');
+    const masterCard = document.getElementById('master-decision-card');
+    const decisionIcon = document.getElementById('decision-icon');
+    const decisionText = document.getElementById('decision-text');
+    const decisionDetail = document.getElementById('decision-detail');
+    const pulseDot = document.getElementById('status-pulse-dot');
+    const auditLog = document.getElementById('audit-log');
+    const timecode = document.getElementById('live-timecode');
+    const liveTimeIndicator = document.getElementById('live-time-indicator');
+
+    function updateTime() {
+      if (timecode) {
+        const d = new Date();
+        timecode.textContent = d.toISOString().replace('Z', ' UTC');
+      }
+    }
+    setInterval(updateTime, 1000);
+
+    function setSafeState() {
+      // Button states
+      btnSafe.className = 'scenario-btn active px-space-md py-2 rounded-lg bg-surface-container-high text-[#00FF66] border border-[#00FF66]/50 font-label-sm text-label-sm uppercase font-bold transition-all shadow-sm';
+      btnViolation.className = 'scenario-btn px-space-md py-2 rounded-lg bg-transparent text-secondary hover:text-on-surface font-label-sm text-label-sm uppercase font-bold transition-all';
+
+      // Bounding Box Gloves (Switch to Green / Validated)
+      bboxGloves.className = 'absolute top-[72%] left-[26%] w-[48%] h-[22%] border-2 border-[#00FF66] rounded shadow-[0_0_16px_rgba(0,255,102,0.6)] flex flex-col justify-start transition-all duration-300';
+      bboxGlovesLabel.className = 'bg-[#00FF66] text-black font-label-sm text-label-sm uppercase font-bold px-1.5 py-0.5 self-start';
+      bboxGlovesLabel.textContent = 'GUANTES_DE_SEGURIDAD_OK: 99.1%';
+
+      // Rack Checklist - Guantes Row
+      rackGlovesRow.className = 'flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high border border-surface-container-highest transition-all duration-300';
+      rackGlovesDot.className = 'w-2.5 h-2.5 rounded-full bg-[#00FF66] shadow-[0_0_8px_rgba(0,255,102,0.8)]';
+      rackGlovesIcon.className = 'material-symbols-outlined text-[#00FF66] text-xl';
+      rackGlovesSub.className = 'font-label-sm text-label-sm text-secondary';
+      rackGlovesSub.textContent = 'Detectado (Normativa EN 388 Nivel 4)';
+      rackGlovesBadge.className = 'px-2 py-0.5 rounded-full bg-[#00FF66]/20 text-[#00FF66] font-label-sm font-bold uppercase tracking-wider';
+      rackGlovesBadge.textContent = 'OK 99.1%';
+
+      // Master Access Card - ACCESO AUTORIZADO
+      masterCard.className = 'p-space-md rounded-xl bg-[#08180E] border-2 border-[#00FF66] shadow-[0_0_24px_rgba(0,255,102,0.35)] flex flex-col gap-2 transition-all duration-300';
+      decisionIcon.className = 'material-symbols-outlined text-3xl text-[#00FF66]';
+      decisionIcon.textContent = 'verified_user';
+      decisionText.className = 'font-headline-md text-headline-md font-bold uppercase text-[#00FF66] tracking-tight';
+      decisionText.textContent = 'ACCESO AUTORIZADO';
+      decisionDetail.textContent = 'ACCESO AUTORIZADO // Cumplimiento 3/3 validado. Desbloqueo electromagnético habilitado.';
+      pulseDot.className = 'w-3 h-3 rounded-full bg-[#00FF66] animate-ping';
+      if (liveTimeIndicator) liveTimeIndicator.className = 'w-2 h-2 rounded-full bg-[#00FF66] animate-ping';
+
+      // Audit Log - 3 Clases
+      auditLog.innerHTML = `
+        <span class="text-secondary">[14:38:22.118] &gt; RE-EVALUANDO TELEMETRIA ESCLUSA</span>
+        <span class="text-primary-container">[14:38:22.132] &gt; YOLO_CLASS_0 (CASCO): CONF 0.997 [PASS]</span>
+        <span class="text-primary-container">[14:38:22.146] &gt; YOLO_CLASS_1 (CHALECO): CONF 0.984 [PASS]</span>
+        <span class="text-[#00FF66] font-bold">[14:38:22.160] &gt; YOLO_CLASS_2 (GUANTES): CONF 0.991 [PASS]</span>
+        <span class="text-[#00FF66] font-bold">[14:38:22.174] &gt; CONJUNTO 3/3 VALIDADO: RELAY_UNLOCK(PIN_12)=PULSO_5S</span>
+      `;
+    }
+
+    function setViolationState() {
+      // Button states
+      btnViolation.className = 'scenario-btn active px-space-md py-2 rounded-lg bg-surface-container-high text-primary-container border border-primary-container/40 font-label-sm text-label-sm uppercase font-bold transition-all shadow-sm';
+      btnSafe.className = 'scenario-btn px-space-md py-2 rounded-lg bg-transparent text-secondary hover:text-on-surface font-label-sm text-label-sm uppercase font-bold transition-all';
+
+      // Bounding Box Gloves (Switch to Red / Alert)
+      bboxGloves.className = 'absolute top-[72%] left-[26%] w-[48%] h-[22%] border-2 border-error rounded shadow-[0_0_16px_rgba(255,42,42,0.8)] flex flex-col justify-start transition-all duration-300';
+      bboxGlovesLabel.className = 'bg-error text-on-error font-label-sm text-label-sm uppercase font-bold px-1.5 py-0.5 self-start animate-pulse';
+      bboxGlovesLabel.textContent = 'ERROR: GUANTES_NO_DETECTADOS';
+
+      // Rack Checklist - Guantes Row
+      rackGlovesRow.className = 'flex items-center justify-between p-2.5 rounded-lg bg-error-container/20 border border-error/50 transition-all duration-300';
+      rackGlovesDot.className = 'w-2.5 h-2.5 rounded-full bg-error shadow-[0_0_8px_rgba(255,77,77,0.8)] animate-pulse';
+      rackGlovesIcon.className = 'material-symbols-outlined text-error text-xl';
+      rackGlovesSub.className = 'font-label-sm text-label-sm text-error';
+      rackGlovesSub.textContent = 'Infracción: No detectados / Omitidos';
+      rackGlovesBadge.className = 'px-2 py-0.5 rounded-full bg-error text-on-error font-label-sm font-bold uppercase tracking-wider';
+      rackGlovesBadge.textContent = 'OMITIDO';
+
+      // Master Access Card - ACCESO DENEGADO
+      masterCard.className = 'p-space-md rounded-xl bg-[#1A0D0D] border-2 border-error shadow-[0_0_24px_rgba(255,42,42,0.35)] flex flex-col gap-2 transition-all duration-300';
+      decisionIcon.className = 'material-symbols-outlined text-3xl text-error';
+      decisionIcon.textContent = 'gpp_bad';
+      decisionText.className = 'font-headline-md text-headline-md font-bold uppercase text-error tracking-tight';
+      decisionText.textContent = 'ACCESO DENEGADO';
+      decisionDetail.textContent = 'Falta Guantes de Seguridad. Protocolo bloquea torniquete/maquinaria.';
+      pulseDot.className = 'w-3 h-3 rounded-full bg-error animate-ping';
+      if (liveTimeIndicator) liveTimeIndicator.className = 'w-2 h-2 rounded-full bg-error animate-ping';
+
+      // Audit Log - 3 Clases
+      auditLog.innerHTML = `
+        <span class="text-secondary">[14:38:09.004] &gt; SUJETO DETECTADO ID#4891 EN ESCLUSA</span>
+        <span class="text-primary-container">[14:38:09.048] &gt; YOLO_CLASS_0 (CASCO): CONF 0.997 [PASS]</span>
+        <span class="text-primary-container">[14:38:09.062] &gt; YOLO_CLASS_1 (CHALECO): CONF 0.984 [PASS]</span>
+        <span class="text-error">[14:38:09.082] &gt; YOLO_CLASS_2 (GUANTES): CONF 0.12 [FAIL_NOT_DETECTED]</span>
+        <span class="text-error font-bold">[14:38:09.112] &gt; TRIGGER RELAY_LOCK(PIN_24)=HIGH // ACCESO DENEGADO</span>
+      `;
+    }
+
+    if (btnSafe) btnSafe.addEventListener('click', setSafeState);
+    if (btnViolation) btnViolation.addEventListener('click', setViolationState);
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high relative overflow-hidden"><div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-primary-container/40 to-transparent"></div><div class="max-w-7xl mx-auto px-gutter-desktop py-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex flex-col sm:flex-row items-center gap-space-md text-center sm:text-left"><div class="flex items-center gap-space-xs"><img alt="GUARD.IA" class="w-6 h-6 rounded-full object-cover border border-primary-container/60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSXipmGlUQAZGpIhmjiHQOQaX5VsdH72cT9ryY5xFZ0LW9en3UCP1i-rBo_bSjChhA-looAIUruN_h2KM2mhE30dlcJgCCcRbfm0-H-myOUWhfpEPz6yKASxpgBWNONuooeMIQ1x_rbTpO67NQgo2qrCgFbQiE3H5PXrvp4g3wBH7aE6slRpNe7OF8gHwN1WP59AiL_17Ptbb4AVB3f5z3qnv2L6n0PzioaHuiEVtcDTqJ4lYdPAp7f6c5dUK0f1aieA"/><span class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">GUARD<span class="text-primary-container">.IA</span></span><span class="px-space-xs py-0.5 rounded-DEFAULT bg-primary-container/10 border border-primary-container/40 text-primary-container font-label-sm text-label-sm uppercase tracking-widest">ONIET 2026</span></div><span class="hidden sm:inline text-surface-container-highest">|</span><p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 GUARD.IA Industrial Intelligence Systems • Olimpiadas ONIET 2026.</p></div><div class="flex items-center gap-space-lg"><a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors" href="#">Terminal</a><a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors" href="#">GitHub</a><a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors" href="#">API Spec</a><a class="font-label-md text-label-md uppercase text-on-surface-variant hover:text-primary-container transition-colors" href="#">Protocol</a></div></div></footer></body></html>
